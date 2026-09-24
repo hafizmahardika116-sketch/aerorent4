@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking | AeroRent</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: Arial, Helvetica, sans-serif;
+background: #f5f5f3;
+color: #171717;
+}
+a {
+text-decoration: none;
+color: inherit;
+}
+.navbar {
+height: 78px;
+background: white;
+border-bottom: 1px solid #eeeeee;
+display: flex;
+align-items: center;
+}
+.container {
+width: 90%;
+max-width: 1100px;
+margin: auto;
+}
+.navbar .container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.logo {
+font-size: 25px;
+font-weight: 800;
+}
+.logo span {
+color: #d71920;
+}
+.back {
+font-size: 14px;
+color: #555555;
+}
+.back:hover {
+color: #d71920;
+}
+.booking-page {
+padding: 70px 0;
+}
+.booking-title {
+text-align: center;
+margin-bottom: 45px;
+}
+.booking-label {
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 1.5px;
+color: #d71920;
+margin-bottom: 8px;
+}
+.booking-title h1 {
+font-size: 45px;
+letter-spacing: -2px;
+margin-bottom: 10px;
+}
+.booking-title p {
+color: #777777;
+font-size: 15px;
+}
+.booking-layout {
+display: grid;
+grid-template-columns: 1.4fr 0.8fr;
+gap: 25px;
+align-items: start;
+}
+.booking-box {
+background: white;
+padding: 35px;
+border-radius: 14px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.form-title {
+font-size: 22px;
+margin-bottom: 25px;
+}
+.form-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 18px;
+}
+.form-group label {
+display: block;
+font-size: 12px;
+font-weight: 700;
+color: #555555;
+margin-bottom: 7px;
+}
+.form-group input,
+.form-group select {
+width: 100%;
+height: 45px;
+border: 1px solid #dddddd;
+border-radius: 6px;
+padding: 0 12px;
+outline: none;
+background: white;
+}
+.form-group input:focus,
+.form-group select:focus {
+border-color: #d71920;
+}
+.full {
+grid-column: span 2;
+}
+.total-box {
+margin-top: 25px;
+background: #f5f5f3;
+padding: 20px;
+border-radius: 8px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.total-box p {
+font-size: 13px;
+color: #777777;
+}
+.total-price {
+font-size: 25px;
+font-weight: 800;
+}
+.booking-button {
+width: 100%;
+height: 50px;
+margin-top: 20px;
+border: none;
+border-radius: 6px;
+background: #d71920;
+color: white;
+font-size: 14px;
+font-weight: 700;
+cursor: pointer;
+transition: 0.3s;
+}
+.booking-button:hover {
+background: #b9141a;
+}
+.summary {
+background: #171717;
+color: white;
+padding: 30px;
+border-radius: 14px;
+position: sticky;
+top: 100px;
+}
+.summary-label {
+font-size: 11px;
+color: #bbbbbb;
+letter-spacing: 1px;
+margin-bottom: 15px;
+}
+.summary h2 {
+font-size: 27px;
+margin-bottom: 25px;
+}
+.summary-row {
+display: flex;
+justify-content: space-between;
+padding: 14px 0;
+border-bottom: 1px solid #333333;
+font-size: 13px;
+gap: 15px;
+}
+.summary-row span:first-child {
+color: #aaaaaa;
+}
+.summary-row span:last-child {
+text-align: right;
+}
+.summary-note {
+font-size: 12px;
+color: #999999;
+margin-top: 25px;
+line-height: 1.6;
+}
+.footer {
+margin-top: 30px;
+padding: 30px 0;
+background: white;
+border-top: 1px solid #eeeeee;
+text-align: center;
+}
+.footer p {
+font-size: 12px;
+color: #888888;
+}
+@media (max-width: 800px) {
+.booking-layout {
+grid-template-columns: 1fr;
+}
+.summary {
+position: static;
+}
+}
+@media (max-width: 600px) {
+.form-grid {
+grid-template-columns: 1fr;
+}
+.full {
+grid-column: span 1;
+}
+.booking-title h1 {
+font-size: 36px;
+}
+.booking-box {
+padding: 25px;
+}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<div class="container">
+<a href="index.html" class="logo">Aero<span>Rent</span></a>
+<a href="index.html" class="back">← Kembali ke Home</a>
+</div>
+</nav>
+
+<section class="booking-page">
+
+<div class="container">
+
+<div class="booking-title">
+<div class="booking-label">BOOK YOUR RIDE</div>
+<h1>Booking Kendaraan</h1>
+<p>Lengkapi data berikut untuk melakukan pemesanan kendaraan.</p>
+</div>
+
+<div class="booking-layout">
+
+<div class="booking-box">
+
+<h2 class="form-title">Detail Pemesanan</h2>
+
+<div class="form-grid">
+
+<div class="form-group">
+<label>Nama Lengkap</label>
+<input type="text" id="nama" placeholder="Masukkan nama lengkap">
+</div>
+
+<div class="form-group">
+<label>Nomor WhatsApp</label>
+<input type="text" id="nomor" placeholder="08xxxxxxxxxx">
+</div>
+
+<div class="form-group">
+<label>Pilih Kendaraan</label>
+<select id="mobil" onchange="updateSummary()">
+<option value="0">Pilih kendaraan</option>
+<option value="250000">Toyota Agya</option>
+<option value="300000">Toyota Calya</option>
+<option value="350000">Toyota Avanza 2026</option>
+<option value="450000">Toyota Veloz</option>
+<option value="400000">Toyota Rush</option>
+<option value="550000">Toyota Innova Venturer</option>
+<option value="750000">Toyota Innova Zenix</option>
+<option value="1000000">Toyota Fortuner</option>
+<option value="2000000">Toyota Alphard</option>
+<option value="2000000">Toyota Vellfire</option>
+<option value="1200000">Toyota Hiace</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Jumlah Hari</label>
+<input type="number" id="hari" min="1" value="1" onchange="updateSummary()">
+</div>
+
+<div class="form-group full">
+<label>Tanggal Mulai Rental</label>
+<input type="date" id="tanggal">
+</div>
+
+</div>
+
+<div class="total-box">
+<div>
+<p>Total Estimasi</p>
+</div>
+<div class="total-price" id="total">Rp0</div>
+</div>
+
+<button class="booking-button" onclick="prosesBooking()">
+Lanjut ke Pembayaran
+</button>
+
+</div>
+
+<div class="summary">
+
+<div class="summary-label">RENTAL SUMMARY</div>
+
+<h2>AeroRent</h2>
+
+<div class="summary-row">
+<span>Kendaraan</span>
+<span id="summaryMobil">-</span>
+</div>
+
+<div class="summary-row">
+<span>Durasi</span>
+<span id="summaryHari">1 Hari</span>
+</div>
+
+<div class="summary-row">
+<span>Tanggal</span>
+<span id="summaryTanggal">-</span>
+</div>
+
+<div class="summary-row">
+<span>Total</span>
+<span id="summaryTotal">Rp0</span>
+</div>
+
+<p class="summary-note">
+Harga yang ditampilkan merupakan estimasi biaya rental berdasarkan kendaraan dan durasi yang dipilih.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+<p>© 2026 AeroRent. Website dibuat untuk kebutuhan tugas.</p>
+</footer>
+
+<script>
+
+var today = new Date().toISOString().split("T")[0];
+
+document.getElementById("tanggal").setAttribute("min", today);
+
+function updateSummary() {
+
+var mobil = document.getElementById("mobil");
+var harga = Number(mobil.value);
+var namaMobil = mobil.options[mobil.selectedIndex].text;
+var hari = Number(document.getElementById("hari").value);
+var tanggal = document.getElementById("tanggal").value;
+
+if (hari < 1) {
+hari = 1;
+document.getElementById("hari").value = 1;
+}
+
+var total = harga * hari;
+
+document.getElementById("total").innerText =
+"Rp" + total.toLocaleString("id-ID");
+
+document.getElementById("summaryMobil").innerText =
+harga > 0 ? namaMobil : "-";
+
+document.getElementById("summaryHari").innerText =
+hari + " Hari";
+
+document.getElementById("summaryTanggal").innerText =
+tanggal !== "" ? tanggal : "-";
+
+document.getElementById("summaryTotal").innerText =
+"Rp" + total.toLocaleString("id-ID");
+
+}
+
+document.getElementById("tanggal").addEventListener("change", updateSummary);
+
+function prosesBooking() {
+
+var nama = document.getElementById("nama").value.trim();
+var nomor = document.getElementById("nomor").value.trim();
+var mobil = document.getElementById("mobil");
+var harga = Number(mobil.value);
+var hari = Number(document.getElementById("hari").value);
+var tanggal = document.getElementById("tanggal").value;
+
+if (nama === "") {
+alert("Silakan masukkan nama lengkap.");
+return;
+}
+
+if (nomor === "") {
+alert("Silakan masukkan nomor WhatsApp.");
+return;
+}
+
+if (harga === 0) {
+alert("Silakan pilih kendaraan.");
+return;
+}
+
+if (tanggal === "") {
+alert("Silakan pilih tanggal rental.");
+return;
+}
+
+if (hari < 1) {
+alert("Jumlah hari minimal 1 hari.");
+return;
+}
+
+var namaMobil = mobil.options[mobil.selectedIndex].text;
+var total = harga * hari;
+
+var bookingData = {
+nama: nama,
+nomor: nomor,
+mobil: namaMobil,
+harga: harga,
+hari: hari,
+tanggal: tanggal,
+total: total
+};
+
+localStorage.setItem("bookingData", JSON.stringify(bookingData));
+
+window.location.href = "payment.html";
+
+}
+
+var params = new URLSearchParams(window.location.search);
+var mobilDariHome = params.get("mobil");
+
+if (mobilDariHome) {
+
+var selectMobil = document.getElementById("mobil");
+
+for (var i = 0; i < selectMobil.options.length; i++) {
+
+if (selectMobil.options[i].text === mobilDariHome) {
+
+selectMobil.selectedIndex = i;
+
+break;
+
+}
+
+}
+
+updateSummary();
+
+}
+
+</script>
+
+</body>
+</html>
